@@ -42,7 +42,7 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: ['PhantomJS'],
     reporters: ['mocha'],
-    singleRun: false,
+    singleRun: true,
     concurrency: Infinity,
     browserConsoleLogOptions: {
       level: 'log',
