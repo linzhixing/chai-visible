@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
-chai.Assertion.addProperty('visible', require('../index.js'));
+chai.Assertion.addProperty('visible', require('../lib/index.js'));
 var testId = 'test';
 
 describe('to.be.visible', function() {

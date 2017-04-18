@@ -11,31 +11,14 @@ module.exports = function(config) {
       'karma-phantomjs-launcher'
     ],
     files: [
-      'index.js',
+      'lib/index.js',
       'test/**/*.spec.js'
     ],
     preprocessors: {
-      'index.js': ['webpack', 'sourcemap'],
+      'lib/index.js': ['webpack', 'sourcemap'],
       'test/**/*.spec.js': ['webpack', 'sourcemap']
     },
-    webpack: {
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader',
-              query: {
-                 presets: ["es2015", "stage-0"],
-                 cacheDirectory: true
-              }
-            }
-          }
-        ],
-      },
-      devtool: 'inline-source-map'
-    },
+    webpack: configureWebpack(),
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
@@ -50,4 +33,10 @@ module.exports = function(config) {
       terminal: true
     }
   });
+}
+
+function configureWebpack(webpackConfigFunction) {
+  var webpackConfig = require('./webpack.config.js');
+  webpackConfig.entry = undefined; // karma will pass the proper argument for entry
+  return webpackConfig;
 }
