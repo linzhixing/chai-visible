@@ -1,6 +1,6 @@
 {
   "name": "chai-visible",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Chai plugins with is-visible",
   "main": "lib/index.js",
   "files": [
